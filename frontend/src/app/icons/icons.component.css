@@ -1,0 +1,53 @@
+
+
+body {
+    background-image: linear-gradient(to right, black, darkseagreen);
+}
+
+form {
+    height: auto;
+    width: auto;
+    margin: 300px auto;
+
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border-radius: .4rem;
+}
+
+select {
+    display: block;
+    margin: 15px auto;
+    box-sizing: border-box;
+    border-radius: .4rem;
+}
+
+.input {
+    height: 40px;
+    width: 300px;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'font';
+    font-size: 30px;
+}
+
+.input2 {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-family: 'font';
+    font-size: 30px;
+}
+
+#afficheResultat {
+    height: 50px;
+    width: 50px;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 50px;
+    font-family: 'font';
+    font-size: 30px;
+}

@@ -1,0 +1,99 @@
+<div *ngIf="isLoading">
+  <app-notifications></app-notifications>
+   
+</div>
+
+<div class="main-content"*ngIf="!isLoading" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <div><mat-label style="color:black;font-size: 28px ; margin-left: 250px; margin-top: 20px;font-family: Georgia, serif;">Cube_Source</mat-label></div>
+            <br>
+            <br>
+
+                  <mat-label style="color:black;font-size: 23px;"> Please Choose an Analysis server name  </mat-label>
+                  <mat-form-field >
+                    <mat-select  id="selectedServerSorceId" [(ngModel)]="selectedServerEngineSorceId" [compareWith]="comparer" >
+                      <mat-option *ngFor="let obj  of liste_des_serveur " [value]="obj" (click)="setserveur(obj.Id)">
+                        {{ obj.Name }} 
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                    <br><br>
+                
+              
+                    <mat-label style="color:black;font-size: 23px;">Please Choose data base  </mat-label>
+                  <mat-form-field >
+                  
+                    <mat-select  id="database-select" [(ngModel)]="selectedDataWarhouse" required>
+                      <mat-option *ngFor="let obj  of liste_des_bd  " [value]="obj" (click)="setbasedonnees(obj.Name)"> {{ obj.Name }} </mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div><mat-label style="color:black;font-size: 28px ; margin-left: 250px; margin-top: 20px;font-family: Georgia, serif;">Data_Base_Source</mat-label></div>
+               <br>
+                <br>
+                  <mat-label style="color:black;font-size: 23px;"> Please Choose a Server Engin  Name  </mat-label>
+                  <mat-form-field >
+                    <mat-select  id="selectedServerSorceId" [(ngModel)]="selectedServerSorceId" [compareWith]="comparer" >
+                      <mat-option *ngFor="let obj  of liste_des_serveur " [value]="obj" (click)="setserveur(obj.Id)">
+                        {{ obj.Name }} 
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                    <br>
+                    <br>
+                
+              
+                    <mat-label style="color:black;font-size: 23px;">Please Choose a data base (Data Warehouse)</mat-label>
+                  <mat-form-field >
+                  
+                    <mat-select  id="database-select" [(ngModel)]="selectedDatabase" required>
+                      <mat-option *ngFor="let obj  of liste_des_bd  " [value]="obj" (click)="setbasedonnees(obj.Name)"> {{ obj.Name }} </mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+          </div>
+        </div>
+      
+        <div class="column ">
+          
+          <div class="card">
+       
+           <div><mat-label style="color:black;font-size: 28px ; margin-left: 250px; margin-top: 20px;font-family: Georgia, serif;">Destination </mat-label></div>
+           <br>
+           <br>
+                <mat-label style="color:black;font-size: 23px ;">Please Choose a destination server </mat-label>
+              <mat-form-field >
+                <mat-select multiple id="ServerAnalyse" [(ngModel)]="selectedServer" [compareWith]="comparer" >
+                  <mat-option *ngFor="let obj  of liste_des_serveur " [value]="obj" >
+                     {{ obj.Name }} 
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+       
+              <br><br>
+            
+               <mat-label style="color:black;font-size: 23px;"> Please Set a Name to the Cube </mat-label>
+                   <mat-form-field class="example-full-width">
+  
+                   
+                     <input matInput  [(ngModel)]="newCubename"  >
+                   </mat-form-field>
+          
+          </div>
+        </div>
+      </div> 
+     
+      <button type="button" class="btn btn-success"   (click)="Dispatch()"  style="width:80% ; margin: top 30px; margin-left: 120PX; text-align: center ; text-size-adjust:3px ;"> Dispatch   <br> <i class="material-icons" >send</i></button>
+      <br>
+      <br>
+     
+      <br>   
+    </div>
+  </div>

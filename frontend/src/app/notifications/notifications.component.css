@@ -1,0 +1,73 @@
+body{
+    background-color :#fff;
+    
+  }
+  .parent{
+    margin: 140px auto 20px;
+    display: flex;
+    justify-content: center;
+    animation-name: move;
+    animation-duration: 2s;
+  }
+  .child{
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+    background-color: #111111;
+    border-radius: 50%;
+    animation-name: looding;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate ;
+  }
+  .two{
+    animation-delay: .1s ;
+  }
+  .three{
+    animation-delay: .2s ;
+  }
+  .four{
+    animation-delay: .3s ;
+  }
+  .five{
+    animation-delay: .4s ;
+  }
+  .sex{
+    animation-delay: .5s ;
+  }
+  @keyframes looding {
+    from{
+      transform: translateY(0px);
+    }
+    to{
+      transform: translateY(-30px);
+      opacity: .2;
+    }
+  }
+  @keyframes move {
+    from{
+      margin-left: 10px;
+    }
+    to{
+      margin-left: 0;
+    }
+  }
+  .info
+  {
+    margin: 10px auto;
+    text-align: center;
+    color: 0F0E0E;
+    text-transform: uppercase;
+    font-family: fantasy;
+    font-size: 30px;
+    letter-spacing: 0px;
+    animation-name:inform;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+  }
+  @keyframes inform {
+    to{
+      opacity: .1;
+    }
+  }
