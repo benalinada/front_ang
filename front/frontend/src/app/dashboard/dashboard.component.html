@@ -1,18 +1,38 @@
 <div *ngIf="isLoading">
-  <app-notifications></app-notifications>
-  
+  <!-- <app-notifications></app-notifications>
+   --><app-maps></app-maps>
 </div>
 
-<div class="main-content" *ngIf="!isLoading" >
+<div class="main-content" *ngIf="!isLoading"style="padding: 70px 60px ;margin-right: 60px ;" >
   <div class="container-fluid">
     <div *ngIf= "loading && MeassageError && MeassageError.length>0">
-      Error create cube ...
+      <div class="col-sm-12">
+        <div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+          <button type="button" class="close font__size-18" data-dismiss="alert">
+									<span aria-hidden="true">
+										<i class="fa fa-times danger "></i>
+									</span>
+									<span class="sr-only">Close</span>
+								</button>
+          <i class="start-icon far fa-times-circle faa-pulse animated"></i>
+          <strong class="font__weight-semibold">Oh Error!</strong> Try again.
+        </div>
+      </div>
     </div>
+    
     <div *ngIf= "loading && MeassageError && MeassageError.length == 0">
-      cube created succes ...   
-      <img src="../../assets/img/faces/1436013803checkbox-1024x1024.webp"/>
-      <button   class="btn btn-primary btn-lg btn-block" (click)="reset()">OK</button>
-     </div>
+      <div class="col-sm-12">
+        <div class="alert fade alert-simple alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show">
+          <button type="button" class="close font__size-18" data-dismiss="alert">
+									<span aria-hidden="true"><a>
+                    <i class="fa fa-times greencross"></i>
+                    </a></span>
+									<span class="sr-only">Close</span> 
+								</button>
+          <i class="start-icon far fa-check-circle faa-tada animated"></i>
+          <strong class="font__weight-semibold">Well done!</strong> Cube Creat successfully.
+        </div>
+      </div>
   <div *ngIf= "loading && !MeassageError" >
     <app-maps></app-maps>
   </div>
@@ -169,10 +189,31 @@
 
  
     <button type="button" class="btn btn-dark" [disabled]="obj1 == null || obj2 == null"  (click)="match()" style=" margin-top: 45px ; margin-left:100px; width: 300PX;font-family: Georgia, serif ;font-size: 19px"> Add </button>
-    <button type="button" class="btn btn-danger"[disabled]="obj1 == null || obj2 == null"  (click)="match()" style=" margin-top: 45px ; margin-left:80px; width: 300PX;font-family: Georgia, serif ;font-size: 17px"> Delete </button>
-
   </div>
   <br>
+<br>
+<table class="table table-bordered,table-light">
+  <thead>
+      <tr>
+        <th>Mesure</th>
+        <th>Operation</th>
+        <th>Mesure Name</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+  
+    <tr *ngFor="let obj of resultat_de_selection">
+      <td>{{ obj.obj1.TableName }}</td>
+      <td>{{ obj.obj1.Name }}</td>
+      <td>{{ this.fact_name }}</td>
+      <td>{{ obj.obj2.Name }}</td>
+      
+    </tr>
+  </tbody>
+</table>
+<br>
 <br>
   <mat-label style="color:black;font-size: 23px;"> Please Set a Name For the Cube </mat-label>
         <mat-form-field class="example-full-width">
@@ -182,7 +223,7 @@
           <input matInput  [(ngModel)]="Cubename">
         </mat-form-field>
         <br>
-        <br>
+   <br>
     <button    type="button" class="btn btn-danger" [disabled]="Cubename == null"  (click)="envoyer_data()" style="width:80% ; margin: top 30px; margin-left: 120PX; text-align: center ; text-size-adjust:3px ;font-family: Georgia, serif ;">
       <h2> Generate Your Cube  </h2>
     </button>

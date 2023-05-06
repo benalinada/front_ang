@@ -1,0 +1,99 @@
+
+<div class="main-content" style="padding: 70px 60px ;margin-right: 60px ;">
+  <div class="container-fluid">
+    <mat-label style="color:black;font-size: 20px;"> Please Choose a Server Name  </mat-label>
+    <mat-form-field >
+      <mat-select  id="selectedServerSorceId" [(ngModel)]="selectedServerSorceId" [compareWith]="comparer" >
+        <mat-option *ngFor="let obj  of liste_des_serveur " [value]="obj" (click)="setserveur(obj.Id)">
+          {{ obj.Name }} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      <br><br>
+  
+
+      <mat-label style="color:black;font-size: 20px;">Please Choose a cube name </mat-label>
+    <mat-form-field >
+    
+      <mat-select  id="database-select" [(ngModel)]="selectedDatabase" required>
+        <mat-option *ngFor="let obj  of liste_des_bd  " [value]="obj" (click)="setbasedonnees(obj.Name)"> {{ obj.Name }} </mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <br>
+    <mat-label style="color:black;font-size: 20px;margin-left:10px" > Please Create Operation  </mat-label>
+   <div style="display: flex  ; width: 80%;    padding: auto 60px">
+     <section  style="margin-left:10px;margin-top: 50px"  >
+       <mat-form-field>
+         <mat-label>Mesure 1</mat-label>
+         <mat-select    [compareWith]="comparer" >
+           <mat-option *ngFor="let el of liste1 " [value]="el" (click)="setselect1(el)" >
+             {{el.Name}}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+     </section>
+     <br>
+      <br>
+    
+     <section  style="margin-left: 5%;margin-top: 50px;">
+   
+       <mat-form-field>
+         <mat-label>Operations</mat-label>
+         <mat-select>
+           <mat-option value="option1">Sum</mat-option>
+           <mat-option value="option2">Avg</mat-option>
+           <mat-option value="option3">count</mat-option>
+         </mat-select>
+       </mat-form-field>
+     </section>
+<br>
+     <div style="display: flex  ; width: 80%;">
+      <section   style="margin-left:70px;margin-top: 50px" >
+        <mat-form-field>
+          <mat-label>Mesure 2</mat-label>
+          <mat-select    [compareWith]="comparer" >
+            <mat-option *ngFor="let el of liste1 " [value]="el" (click)="setselect1(el)" >
+              {{el.Name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+ 
+  <br>
+  <br>
+ 
+  
+  <button type="button" class="btn btn-dark" [disabled]="obj1 == null || obj2 == null"  (click)="match()" style=" margin-top: 45px ; margin-left:100px; width: 350PX;font-family: Georgia, serif ;font-size: 15px"> Add Calculation </button>
+        </div>
+        </div>
+        <br>
+        <br>
+        <table class="table table-bordered,table-light">
+          <thead>
+              <tr>
+                <th>Mesure_Name</th>
+                <th>Operation</th>
+                <th>Mesure Calculed---Calculation Name </th>
+
+                <th>Action</th>
+        
+              </tr>
+            </thead>
+            <tbody>
+          
+            <tr *ngFor="let obj of resultat_de_selection">
+              <td>{{ obj.obj1.TableName }}</td>
+              <td>{{ obj.obj1.Name }}</td>
+              <td>{{ this.fact_name }}</td>
+              <td>{{ obj.obj2.Name }}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+    </div>
+  

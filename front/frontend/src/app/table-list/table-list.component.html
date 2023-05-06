@@ -3,7 +3,7 @@
    
 </div>
 
-<div class="main-content"*ngIf="!isLoading" >
+<div class="main-content"*ngIf="!isLoading"style="padding: 70px 60px ;margin-right: 60px ;" >
     <div class="container-fluid">
       <div class="row">
         <div class="column">
@@ -60,10 +60,9 @@
                   </mat-form-field>
           </div>
         </div>
-      
-        <div class="column ">
+        <div class="column " stylye="width=200px">
           
-          <div class="card">
+          <div class="card" style="margin-left:380px">
        
            <div><mat-label style="color:black;font-size: 28px ; margin-left: 250px; margin-top: 20px;font-family: Georgia, serif;">Destination </mat-label></div>
            <br>
@@ -88,6 +87,7 @@
           
           </div>
         </div>
+      
       </div> 
      
       <button type="button" class="btn btn-success"   (click)="Dispatch()"  style="width:80% ; margin: top 30px; margin-left: 120PX; text-align: center ; text-size-adjust:3px ;"> Dispatch   <br> <i class="material-icons" >send</i></button>

@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 declare const $: any;
@@ -10,9 +11,9 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Add New Cube',  icon: 'fiber_new', class: '' },
   { path: '/icons', title: 'Add Calculation ',  icon:'playlist_add', class: '' },
-  { path: '/table-list', title: 'Dispatch an existing cube',  icon:'send', class: '' },
+  { path: '/table-list', title: 'Dispatch an existing cube'   ,  icon:'send', class: '' },
   { path: '/typography', title: 'Reporting',  icon:'equalizer', class: '' },
- { path: '/user-profile', title: 'Acount',  icon:'person', class: '' },
+ { path: '/user-profile', title: 'Your Profil ',  icon:'person', class: '' },
  // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
 ];
 
